@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">RedBatiz</string>
+    <string name="hint_user_name">Nombre de Usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_button_login">Login</string>
+    <string name="dont_have_account">¿No tienes cuenta?,</string>
+    <string name="create_here">Crea una aquí</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_user">Usuario</string>
+    <string name="hint_confirm_password">Confirmar contraseña</string>
+    <string name="text_button_create_account">Únete</string>
+    <string name="toolbar_title_create_account">Crear cuenta</string>
+    <string name="user_name_card">Angel Marcos</string>
+    <string name="first_word_card">Hace</string>
+    <string name="time_card_card">4 días</string>
+    <string name="like_number_card">10 Me Gusta</string>
+    <string name="login_error">Ocurrió este error: </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_search">Buscar</string>
+    <string name="tab_home">Inicio</string>
+    <string name="tab_me">Yo</string>
+    <string name="secondword_detail">Me Gusta</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet viverra mauris non ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis scelerisque, sapien eu commodo imperdiet, arcu nulla interdum tortor, vel luctus ante ligula sit amet lectus. Suspendisse potenti. Nullam a lacus quis tortor tempus varius. Aenean et elit volutpat, lobortis sapien non, lacinia tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam vitae vehicula ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam convallis libero at nisl tristique, ut fermentum nunc rutrum. Aliquam eu velit tempus, aliquet risus a, semper nibh. Aliquam erat volutpat. Vivamus ornare massa nulla, malesuada cursus lacus sagittis ac. Quisque lacinia dolor vel lacus finibus condimentum. Maecenas venenatis massa quam, vehicula sodales enim facilisis in.</string>
+    <string name="transition_name_picture">transitionnamepicture</string>
+    <string name="hint_title">Titulo</string>
+    <string name="hint_description">Descripción</string>
+    <string name="text_button_create_post">Crear Post</string>
+    <string name="facebook_app_id">457182014663762</string>
+    <string name="fb_login_protocol_scheme">fb457182014663762</string>
+    <string name="menu_signout">Cerrar Sesión</string>
+    <string name="menu_about">Acerca de</string>
+
+</resources>

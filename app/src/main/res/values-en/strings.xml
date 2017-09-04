@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hint_user_name">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="text_button_login">Login</string>
+    <string name="dont_have_account">Don\'t have account?</string>
+    <string name="create_here">Create one here</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_user">Username</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_button_create_account">Join Us</string>
+    <string name="toolbar_title_create_account">Create account</string>
+    <string name="first_word_card">Hace</string>
+    <string name="time_card_card">4 días</string>
+    <string name="like_number_card">10 Me Gusta</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_me">Me</string>
+    <string name="secondword_detail">Me Gusta</string>
+    <string name="login_error">Something Happen: </string>
+    <string name="hint_title">Titulo</string>
+    <string name="hint_description">Descripción</string>
+    <string name="text_button_create_post">Crear Post</string>
+    <string name="menu_signout">Cerrar Sesión</string>
+    <string name="menu_about">Acerca de</string>
+
+
+</resources>

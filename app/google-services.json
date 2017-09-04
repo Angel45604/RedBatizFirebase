@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "387949192964",
+    "firebase_url": "https://redbatizfirebase.firebaseio.com",
+    "project_id": "redbatizfirebase",
+    "storage_bucket": "redbatizfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387949192964:android:8187660718274625",
+        "android_client_info": {
+          "package_name": "com.marcos.angel.redbatizfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387949192964-5e6oeqcbcm9v2g7tlqi8ebqq60splabk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marcos.angel.redbatizfirebase",
+            "certificate_hash": "29064083b23bf6c75bf525d328a15c8a1042a03a"
+          }
+        },
+        {
+          "client_id": "387949192964-7vumultf4cp45pudcooaf66ecte72v1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH200sHu-A8KX9FSS7AEE1_oyCiWvJdGc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387949192964-7vumultf4cp45pudcooaf66ecte72v1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
