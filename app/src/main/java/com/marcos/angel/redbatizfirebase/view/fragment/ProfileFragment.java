@@ -1,6 +1,7 @@
 package com.marcos.angel.redbatizfirebase.view.fragment;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.marcos.angel.redbatizfirebase.R;
 import com.marcos.angel.redbatizfirebase.adapter.PictureAdapterRecyclerView;
@@ -22,6 +24,8 @@ import java.util.ArrayList;
  */
 public class ProfileFragment extends Fragment {
 
+    private TextView usernameProfile;
+    private String image;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -34,6 +38,7 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
         showToolbar("",false,view);
+
         RecyclerView picturesRecycler = (RecyclerView) view.findViewById(R.id.pictureProfileRecycler);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());

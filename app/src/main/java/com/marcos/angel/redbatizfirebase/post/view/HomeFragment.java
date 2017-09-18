@@ -17,8 +17,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.google.firebase.crash.FirebaseCrash;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.marcos.angel.redbatizfirebase.R;
 import com.marcos.angel.redbatizfirebase.adapter.PictureAdapterRecyclerView;
 import com.marcos.angel.redbatizfirebase.model.Picture;
@@ -28,6 +34,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import retrofit2.http.POST;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,8 +44,12 @@ import java.util.Date;
 public class HomeFragment extends Fragment {
 
     private static final int REQUEST_CAMERA = 1;
+    private static final String POST_NODE = "Posts";
     private FloatingActionButton fabCamera;
     private String photoPathTemp = "";
+
+    private ArrayList<Picture> pictures;
+    private DatabaseReference databaseReference;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -57,7 +70,9 @@ public class HomeFragment extends Fragment {
 
         picturesRecycler.setLayoutManager(linearLayoutManager);
 
-        PictureAdapterRecyclerView pictureAdapterRecyclerView =
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        final PictureAdapterRecyclerView pictureAdapterRecyclerView =
                 new PictureAdapterRecyclerView(buildPictures(), R.layout.cardview_picture, getActivity());
         picturesRecycler.setAdapter(pictureAdapterRecyclerView);
 
@@ -68,8 +83,29 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        databaseReference.child(POST_NODE).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                pictures.clear();
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        Picture picture = snapshot.getValue(Picture.class);
+                        pictures.add(picture);
+                    }
+                }
+                pictureAdapterRecyclerView.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         return view;
     }
+
 
     private void takePicture() {
         Intent intentTakePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -114,10 +150,24 @@ public class HomeFragment extends Fragment {
     }
 
     public ArrayList<Picture> buildPictures(){
-        ArrayList<Picture> pictures = new ArrayList<>();
-        pictures.add(new Picture("http://www.novalandtours.com/images/guide/guilin.jpg", "Angel Marcos", "4 Dias", "3"));
-        pictures.add(new Picture("https://www.google.com.mx/imgres?imgurl=https%3A%2F%2Fthumb1.shutterstock.com%2Fdisplay_pic_with_logo%2F3910382%2F616462838%2Fstock-photo-sample-stamp-on-white-background-sample-stamp-sign-616462838.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fes%2Fsearch%2Fsample&docid=rcle1eVejgiZSM&tbnid=YFNWPACA-PXPGM%3A&vet=10ahUKEwjl55ut5_XVAhUBdiYKHZoVCCwQMwgtKAcwBw..i&w=450&h=331&bih=638&biw=1360&q=sample%20image&ved=0ahUKEwjl55ut5_XVAhUBdiYKHZoVCCwQMwgtKAcwBw&iact=mrc&uact=8", "Pablo Ramon", "3 Dias", "10"));
-        pictures.add(new Picture("https://www.google.com.mx/imgres?imgurl=https%3A%2F%2Fthumb1.shutterstock.com%2Fdisplay_pic_with_logo%2F3910382%2F616462838%2Fstock-photo-sample-stamp-on-white-background-sample-stamp-sign-616462838.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fes%2Fsearch%2Fsample&docid=rcle1eVejgiZSM&tbnid=YFNWPACA-PXPGM%3A&vet=10ahUKEwjl55ut5_XVAhUBdiYKHZoVCCwQMwgtKAcwBw..i&w=450&h=331&bih=638&biw=1360&q=sample%20image&ved=0ahUKEwjl55ut5_XVAhUBdiYKHZoVCCwQMwgtKAcwBw&iact=mrc&uact=8", "No se Quien", "2 Dias", "1"));
+        pictures = new ArrayList<>();
+        databaseReference.child(POST_NODE).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                pictures.clear();
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        Picture picture = snapshot.getValue(Picture.class);
+                        pictures.add(picture);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return pictures;
 
     }
