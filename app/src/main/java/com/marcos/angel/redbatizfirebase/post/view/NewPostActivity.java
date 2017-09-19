@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.facebook.Profile;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.crash.FirebaseCrash;
@@ -87,7 +88,6 @@ public class NewPostActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
 
         byte[] photoByte= byteArrayOutputStream.toByteArray();
-
         String photoName =  photoPath.substring(photoPath.lastIndexOf("/")+1,photoPath.length());
 
         StorageReference photoReference =storageReference.child("postImages/"+photoName);
@@ -109,7 +109,7 @@ public class NewPostActivity extends AppCompatActivity {
 
                 //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
                 databaseReference = FirebaseDatabase.getInstance().getReference();
-                Picture picture = new Picture(databaseReference.push().getKey(), photoURL,"Angel", "10", timeStamp, txtTitle.getText().toString(), txtDescription.getText().toString());
+                Picture picture = new Picture(databaseReference.push().getKey(), photoURL,Profile.getCurrentProfile().getFirstName(), "10", timeStamp, txtTitle.getText().toString(), txtDescription.getText().toString());
                 Log.d(TAG,"PICTURE "+picture);
                 databaseReference.child(POSTS_NODE).child(picture.getId()).setValue(picture);
                 finish();
