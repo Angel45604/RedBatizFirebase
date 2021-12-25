@@ -1,5 +1,5 @@
 # Red Batiz
-A social network (kind of), made in native android with Firebase and Facebook integration.
+A social network (kind of), made in native android following the MVP architecture, with Firebase and Facebook integration.
 
 ![Login](https://user-images.githubusercontent.com/20376969/147322642-82856040-ca00-408d-b943-9c7d76ae0828.png)
 
